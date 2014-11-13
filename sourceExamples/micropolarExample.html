@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script type='text/javascript' src="http://d3js.org/d3.v3.min.js"></script>
+    <script type='text/javascript' src="http://micropolar.org/micropolar-v0.2.2.js"></script>
+    <style>
+      div{
+        float: left;
+        border: #eee 1px solid;
+        margin: 5px;
+      }
+    </style>
+</head>
+<body>
+
+<div id="container1"></div>
+
+<script>
+// to see how the math actually works 
+// https://www.desmos.com/calculator
+var myRange = d3.range(-0.5, 0.55, 0.05);
+var myRange = d3.range(0, 366, 6);
+var attenuation = -0.15;
+var width = 0.5; // 0 is no attenuation; 10 is almost 50% of -5 to 5
+
+var config = {
+  data:
+  [
+    // {t:d3.range(0, 360 + 6, 6), r:d3.range(0, 360 + 6, 6).map(function(deg){ return Math.abs(Math.cos(deg * Math.PI / 180));}),color:"none",strokeColor:"peru",geometry:"LinePlot",name:"Figure8"},
+    // {t:d3.range(0, 360 + 6, 6), r:d3.range(0, 360 + 6, 6).map(function(deg){ return Math.abs(0.5 + 0.5 * Math.cos(deg * Math.PI / 180));}),color:"none",strokeColor:"darkviolet",geometry:"LinePlot",name:"Cardioid"},
+    // {t:d3.range(0, 360 + 6, 6), r:d3.range(0, 360 + 6, 6).map(function(deg){ return Math.abs(0.25 + 0.75 * Math.cos(deg * Math.PI / 180));}),color:"none",strokeColor:"deepskyblue",geometry:"LinePlot",name:"Hypercardioid"},
+    // {t:d3.range(0, 360 + 6, 6), r:d3.range(0, 360 + 6, 6).map(function(deg){ return Math.abs(0.7 + 0.3 * Math.cos(deg * Math.PI / 180));}),color:"none",strokeColor:"orangered",geometry:"LinePlot",name:"Subcardioid"},
+    // {t:d3.range(0, 360 + 6, 6), r:d3.range(0, 360 + 6, 6).map(function(deg){ return Math.abs(0.37 + 0.63 * Math.cos(deg * Math.PI / 180));}),color:"none",strokeColor:"blue",geometry:"LinePlot",name:"Supercardioid"},
+    {
+      t:myRange,
+      r:myRange.map(function(deg){return 0.5;}),
+      color:"none",
+      strokeColor:"red",
+      geometry:"LinePlot",
+      name:"Charles"
+   },
+  ],
+  layout:{
+    title:"Attenuation by angle",
+    orientation:-90,
+    angularAxis:{
+      ticksSuffix:"°",
+    },
+    radialAxis:{
+      range: null, //identical
+      orientation: -90, //upolar only
+      ticksSuffix: 'db', //upolar only, ticksSuffix, to be exposed
+      visible: false, //upolar only
+      showline: false, //gridLinesVisible
+      tickOrientation: 'vertical' //upolar only, tickOrientation, != tickangle
+    },
+    needsEndSpacing:false,
+    backgroundColor:"ghostwhite",
+    width: 400,
+    height: 400,
+    showLegend: false
+  }
+};
+
+var axis = micropolar.Axis().config(config).render(d3.select('body').append('div'));
+
+var render = function(att, wdth){
+  if (typeof att === 'number') attenuation = att;
+  if (typeof wdth === 'number') width = wdth;
+
+    config.data[0].r = myRange.map(function(deg){
+      deg = (deg + 180) % 360;
+      var x = deg / 360 * 10 - 5; // -5 to 5;
+      return width / (width + Math.pow(x, 4)) * attenuation + 1;
+    });
+  axis.config(config).render();
+};
+
+render();
+
+
+</script>
+</body>
+</html>
