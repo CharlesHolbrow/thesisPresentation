@@ -14,26 +14,18 @@
 		<h1>Hypercompression</h1>
 		<h2>Charles Holbrow</h2>
 		<h2>Opera of the Future</h2>
+		<p>paragraph</p>
 	</div>
 
 	<div class="step" data-x="1000">
-		<img class="hide bg" src="img/violin.jpg">
+		<img class="bg" src="img/violin.jpg">
 	</div>
 
-	<div class="step" data-x="2000">
-		<img class="hide bg" src="img/line-array-setup.jpg">
-	</div>
-
-	<div id="flawed" class="step" data-x="2000">
-		<p>Flexible, but Flawed</p>
-	</div>
-
-	<div id="studio" class="step" data-x="2000" data-y="800">
+	<div id="studio" class="step" data-x="1000" data-y="800">
 		<img class="hide bg" src="img/api-vision-2.jpg">
 	</div>
 
-	<div id="fx-list" class="step fx" data-x="2000" data-y="800">
-		<span class="fx-comp">Compression</span>
+	<div id="fx-list" class="step fx" data-x="1000" data-y="800">
 		<span class="hide fx-rev">Reverb</span>
 		<span class="hide fx-eq">EQ</span>
 		<span class="hide fx-exp">Expansion</span>
@@ -42,11 +34,12 @@
 		<span class="hide fx-del">Delay</span>
 		<span class="hide fx-pitch">Pitch Shift</span>
 		<span class="hide fx-acoust">Acoustics</span>
+		<img class="hide" src="img/placement.png" style="float:right" data-jmpress="fade">
 	</div>
 
-	<div id="comp" class="step fx" data-x="2000" data-y="800">
-		<span class="fx-comp">Compression</span>
-
+	<div id="fx-comp" class="step fx" data-x="870" data-y="900" data-z="-500">
+		<h1 class="fx-comp hide">Compression</h1>
+		<div id="item3" data-jmpress="fade">fade: should fade in after next action</div>
 	</div>
 
 
@@ -62,6 +55,15 @@
 <script type="text/javascript">
 $(function() {
 	$('#impress').jmpress();
+
+	$('#fx-list, #fx-comp')
+	.on('enterStep', function(event) {
+    	$('#fx-comp').addClass('always-visible').find('.fx-comp').removeClass('hide');})
+	.on('leaveStep', function(event) {
+        $('#fx-comp').removeClass('always-visible').find('.fx-comp').addClass('hide');
+    });
+
+    $('.active').trigger('enterStep');
 });
 
 </script>
