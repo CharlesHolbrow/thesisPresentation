@@ -126,7 +126,6 @@ a:hover {
 }
 
 /* fade out inactive slides */
-
 .step {
     -webkit-transition: opacity 1s;
     -moz-transition:    opacity 1s;
@@ -144,6 +143,7 @@ a:hover {
     z-index: 10;
 }
 
+/* background images are centered, sized relative to their container */
 img.bg {
     position: absolute;
     top:0px;
@@ -159,7 +159,8 @@ img.bg {
     transform: translate(-50%, -50%);
 }
 
-.step:not(.active) img.bg {
+/* the .hide class is for when we */
+.step:not(.active) .hide {
     opacity: 0;
     -webkit-transition: opacity 1s;
     -moz-transition:    opacity 1s;
@@ -179,15 +180,15 @@ img.bg {
     text-align: center;
 }
 
-span#fx-comp    {position:absolute; top:0px;   left: 300px;}
-span#fx-rev     {position:absolute; top:-100px;   left: 200px;}
-span#fx-eq      {position:absolute; top:200px;   left: 100px;}
-span#fx-exp     {position:absolute; top:180px;   left: 230px;}
-span#fx-auto    {position:absolute; top:-150px;   left: 450px;}
-span#fx-gate    {position:absolute; top:150px;   left: 600px;}
-span#fx-del     {position:absolute; top:-150px;   left: 4px;}
-span#fx-pitch   {position:absolute; top:30px;   left: 4px;}
-span#fx-acoust  {position:absolute; top:100px;   left: 300px;}
+.fx span.fx-comp    {position:absolute; top:0px;   left: 200px;}
+.fx span.fx-rev     {position:absolute; top:340px;   left: 250px;}
+.fx span.fx-eq      {position:absolute; top:200px;   left: 100px;}
+.fx span.fx-exp     {position:absolute; top:180px;   left: 230px;}
+.fx span.fx-auto    {position:absolute; top:300px;   left: 450px;}
+.fx span.fx-gate    {position:absolute; top:150px;   left: 600px;}
+.fx span.fx-del     {position:absolute; top:100px;   left: 4px;}
+.fx span.fx-pitch   {position:absolute; top:300px;   left: 4px;}
+.fx span.fx-acoust  {position:absolute; top:100px;   left: 300px;}
 
 
 /* Theirs */
@@ -315,21 +316,6 @@ span#fx-acoust  {position:absolute; top:100px;   left: 300px;}
     font-size: 78px;
 }
 
-/* use the source, Luke */
-
-#source {
-    width: 700px;
-    padding-bottom: 300px;
-    
-    /* Yoda Icon :: Pixel Art from Star Wars http://www.pixeljoint.com/pixelart/1423.htm */
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAMAAACwUBm+AAAAAXNSR0IArs4c6QAAAKtQTFRFsAAAvbWSLUUrLEQqY1s8UYJMqJ1vNTEgOiIdIzYhjIFVLhsXZ6lgSEIsP2U8JhcCVzMsSXZEgXdOO145XJdWOl03LzAYMk4vSXNExr+hwcuxRTs1Qmk+RW9Am49eFRANQz4pUoNMQWc+OSMDTz0wLBsCNVMxa2NBOyUDUoNNSnlEWo9VRGxAVzYFl6tXCggHbLNmMUIcHhwTXkk5f3VNRT8wUT8xAAAACQocRBWFFwAAAAF0Uk5TAEDm2GYAAAPCSURBVHja7d3JctNAFIZRMwRCCGEmzPM8z/D+T8bu/ptbXXJFdij5fMt2Wuo+2UgqxVmtttq5WVotLzBgwIABAwYMGDCn0qVqbo69psPqVpWx+1XG5iaavF8wYMCAAQMGDBgwi4DJ6Y6qkxB1HNlcN3a92gbR5P2CAQMGDBgwYMCAWSxMlrU+UY5yu2l9okfV4bAxUVbf7TJnAwMGDBgwYMCAAbMLMHeqbGR82Zy+VR1Ht81nVca6R+UdTLaU24Ruzd3qM/e4yjnAgAEDBgwYMGDA7AJMd1l/3NRdVGcj3eX/2WEhCmDGxnM7yqygu8XIPjJj8iN/MGDAgAEDBgwYMAuDGb8q0RGlLCHLv1t9qDKWn3vdNHVuEI6HPaxO9Jo3GDBgwIABAwYMmIXBdC9ShGgMk+XnkXUeuGcsP/e1+lhNnZsL/G5Vs3OAAQMGDBgwYMCAWSxMR3SzOmraG5atdy9wZKzb+vg16qyqe2FltbnAgAEDBgwYMGDALAxmTJSuN3WA76rnVca6GTnemGN1WoEBAwYMGDBgwIBZGMxUomy4+xO899V4LAg5Xnc2MGDAgAEDBgwYMGA218Wq+2K1LDqvY9xZu8zN8fICdM6btYABAwYMGDBgwIABMzfH0+pGU5afze2tXebmeAfVz+p8BQYMGDBgwIABAwbMPBzZ+oWmfJrln1273FhkbHzee9WWbw7AgAEDBgwYMGDALAKm43hcdctKgblcPamOhuXnXlY5Xs6bsW4FGyQCAwYMGDBgwIABswiYMceZKgvMo+h8mrHLTdn676rj+FEFoTtHd8MwOxEYMGDAgAEDBgyYRcBM5UhXqiymW3R3c9ARhWO/OmjqfjVZy+xEYMCAAQMGDBgwYBYG073OnCV0RFNhMhaOa9WfKmOB6XjHMN1tQmaAAQMGDBgwYMCA2VWY7vXjz1U4croAzgPztwIDBgwYMGDAgAEDZhswh035NBw59Dww3RgYMGDAgAEDBgwYMJuD6f4tXT7NUqfCdBvZLkxXdgQGDBgwYMCAAQNmt2DGj8WzwAfV/w7T/aq7mxwwYMCAAQMGDBgwuwqTOo7uTwTngflSzQ3TdaJvAwEDBgwYMGDAgAED5gSvgbyo5oHZ4Pc+gwEDBgwYMGDAgAEzhOm+5G0qTGaAAQMGDBgwYMCAAXNaMOcnls3tNwWm+zRzp54NDBgwYMCAAQMGDJh5YNL36k1TLuGvVq+qnKMbS5n7tulT9asCAwYMGDBgwIABA2ZumKuztLnjgQEDBgwYMGDAgNl5mH/4/ltKA6vBNAAAAABJRU5ErkJggg==);
-    background-position: bottom right;
-    background-repeat: no-repeat;
-}
-
-#source q {
-    font-size: 60px;
-}
 
 /* it's in 3D */
 
