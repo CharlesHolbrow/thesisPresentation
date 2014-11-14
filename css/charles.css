@@ -182,9 +182,10 @@ img.bg {
 
 /* impress.js title */
 
-#flawed p {
-    text-align: center;
+#fx-list {
+    font-size: 35px;
 }
+
 
 .fx span.fx-rev     {position:absolute; top:340px;   left: 250px;}
 .fx span.fx-eq      {position:absolute; top:200px;   left: 90px;}
