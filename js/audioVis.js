@@ -2,7 +2,6 @@
 
 // Create an instance
 var wavesurfer = Object.create(WaveSurfer);
-var analyser;
 
 document.addEventListener('DOMContentLoaded', function () {
     var options = {
@@ -10,17 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
         waveColor     : 'violet',
         progressColor : 'purple',
         loaderColor   : 'purple',
-        cursorColor   : 'navy'
+        cursorColor   : 'navy',
+        hideScrollbar: true,
+        interact: false
     };
-
-    if (location.search.match('scroll')) {
-        options.minPxPerSec = 100;
-        options.scrollParent = true;
-    }
-
-    if (location.search.match('normalize')) {
-        options.normalize = true;
-    }
 
     // Init
     wavesurfer.init(options);
@@ -38,11 +30,6 @@ wavesurfer.on('ready', function () {
 // Report errors
 wavesurfer.on('error', function (err) {
     console.error(err);
-});
-
-// Do something when the clip is over
-wavesurfer.on('finish', function () {
-    console.log('Finished playing');
 });
 
 
@@ -65,9 +52,33 @@ document.addEventListener('DOMContentLoaded', function () {
     wavesurfer.on('destroy', hideProgress);
     wavesurfer.on('error', hideProgress);
 
-    var playButton = document.querySelector('#play-button');
-    playButton.onclick = function(){
+    var isPlaying = false
+    var stop = function(){
+        isPlaying = false;
+    };
+    var start = function(){
+        isPlaying = true;
+        requestAnimationFrame(animate)
+    };
+
+    wavesurfer.on('pause', stop);
+    wavesurfer.on('finish', stop);
+    wavesurfer.on('play', start);
+
+    var $att = $('#attenuation');
+
+    var animate = window.animate = function(){
+        var val = window.audioLevel * -1 / 72 - 1;
+        window.renderPolarChart(val);
+
+        if (isPlaying)
+            requestAnimationFrame(animate);
+    };
+
+
+    $('#waveform').click(function(event){
         wavesurfer.playPause();
-    }
+        event.preventDefault();
+    });
 
 });

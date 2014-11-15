@@ -111,7 +111,7 @@ WaveSurfer.WebAudio = {
                 max = (int[i] > max ? int[i] : max);
             }
             //convert from magitude to decibel
-            var db = 20*Math.log(Math.max(max,Math.pow(10,-72/20)))/Math.LN10;
+            var db = window.audioLevel= 20*Math.log(Math.max(max,Math.pow(10,-72/20)))/Math.LN10;
         };
     },
 
@@ -135,28 +135,6 @@ WaveSurfer.WebAudio = {
         // Add the gain node to the graph
         this.gainNode.connect(this.ac.destination);
 
-    },
-
-    createLevelMeterNode:function(){
-        // Create gain node using the AudioContext
-        var context = this.gainNode.context;
-        debugger;
-        this.levelMeter = context.createAnalyser();
-        this.levelMeter.fftSize = this.fftSize;
-        this.levelMeter.connect(this.gainNode);
-        this.levelMeter.onaudioprocess = function(e){ 
-            var out = e.outputBuffer.getChannelData(0);
-            var int = e.inputBuffer.getChannelData(0);
-            var max = 0;
-            
-            for(var i = 0; i < int.length; i++){
-                out[i] = 0;//prevent feedback and we only need the input data
-                max = int[i] > max ? int[i] : max;
-            }
-            //convert from magitude to decibel
-            var db = 20*Math.log(Math.max(max,Math.pow(10,-72/20)))/Math.LN10;
-            console.log(db);
-        };
     },
 
     /**
