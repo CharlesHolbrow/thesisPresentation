@@ -6,7 +6,17 @@
 
 	<link href="css/animation.css" rel="stylesheet" type="text/css" />
 	<link href="css/basic-animations.css" rel="stylesheet" type="text/css" />
-	<link href="css/charles.css" rel="stylesheet" type="text/css" >
+	<link href="css/charles.css" rel="stylesheet" type="text/css" />
+
+	<!-- wave surfer -->
+	<script src="js/waveSurfer/wavesurfer.js"></script>
+	<script src="js/waveSurfer/webaudio.js"></script>
+	<script src="js/waveSurfer/audioelement.js"></script>
+	<script src="js/waveSurfer/drawer.js"></script>
+	<script src="js/waveSurfer/drawer.canvas.js"></script>
+	<script src="js/waveSurfer/wavesurfer.regions.js"></script> <!-- extra plugin -->
+
+	<script src="js/audioVis.js"></script>
 </head>
 <body>
 <div id="impress">
@@ -43,6 +53,30 @@
 		<div id="item3" data-jmpress="fade">fade: should fade in after next action</div>
 	</div>
 
+	<!-- Web Player -->
+	<div id="fx-comp-example" class="step slide" data-x="800" data-y="1650" data-z="-1000">
+		<div id="demo">
+            <div id="waveform">
+                <div class="progress progress-striped active" id="progress-bar">
+                    <div class="progress-bar progress-bar-info"></div>
+                </div>
+
+                <!-- Here be the waveform -->
+            </div>
+
+            <div class="controls">
+
+                <button id="play-button" class="btn btn-primary" data-action="play">
+                    <i class="glyphicon glyphicon-play"></i>
+                    Play
+                    /
+                    <i class="glyphicon glyphicon-pause"></i>
+                    Pause
+                </button>
+
+            </div>
+        </div>
+	</div>
 
 	<div id="tiny" data-z="-1800" class="step">
 		<p>small</p>
