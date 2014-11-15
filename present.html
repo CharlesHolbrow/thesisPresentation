@@ -35,7 +35,7 @@
 		<h1>Hypercompression</h1>
 		<h2>Charles Holbrow</h2>
 		<h2>Opera of the Future</h2>
-		<p>paragraph</p>
+		<p></p>
 	</div>
 
 	<div class="step" data-x="1000">
@@ -105,7 +105,7 @@
 
 	</div>
 
-	<div id="" class="step slide" data-x="1800" data-y="1650" data-z="-1000">
+	<div id="" class="step slide" data-x="800" data-y="2650" data-z="-1000">
 		<h1>Link Angle gets us half the way there...</h1>
 
 <!--
@@ -115,42 +115,49 @@
  		<h2 data-jmpress="fade">Side Chaining</h2>
 	</div>
 
-	<div id="" class="step slide" data-x="800" data-y="1650" data-z="-1000">
+	<div id="" class="step slide" data-x="1800" data-y="1650" data-z="-1000">
 		<h1>Spread</h1>
 		<p>examples of what this lets us accomplish</p>
 		<p>we need to commit to a panning strategy</p>
 	</div>
 
-	<div id="" class="step slide" data-x="800" data-y="1650" data-z="-1000">
-		<h1>Context in which this would be used</h1>
-		<p>Organ Concert</p>
+	<div id="organ" class="step" data-x="2000" data-y="0" data-z="000">
+		<p>
+			Pierre B&eacute;ique Organ at the Montr&eacute;al Symphony
+		</p>
+		<p data-jmpress="fade after 2s step">6,489 Pipes!</p>
+	</div>
+
+	<div id="organ-image" class="step" data-x="2000" data-y="0" data-z="0">
+		<img src="img/organ-2.jpg" class='bg'>
 	</div>
 
 
-	<div id="" class="step slide" data-x="800" data-y="1650" data-z="-1000">
+	<div id="" class="step slide" data-x="2000" data-y="1000" data-z="0">
 		<h1>Evaluation</h1>
 		<p>As described in document</p>
 	</div>
 
-	<div id="" class="step slide" data-x="800" data-y="1650" data-z="-1000">
-		<h1>Why this is important</h1>
-		<p>VV Floor Plan...</p>
-		<P>VV Image</P>
-		<p data-jmpress="fade">New Kinds of Performances and musical expernces</p>
+	<div id="" class="step " data-x="3000" data-y="0" data-z="0">
+		<h1 style="font-size:10px">Why this is important?</h1>
+		<img src="img/vv-layout-crop.png" class="bg hide">
 	</div>
 
-	<div id="" class="step slide" data-x="800" data-y="1650" data-z="-1000">
+	<div id="" class="step " data-x="3000" data-y="0" data-z="0">
+		<h1 style="font-size:10px">Why this is important?</h1>
+		<img src="img/vv-juliens.jpg" class="bg">
+	</div>
+
+
+<!-- 	<div id="" class="step slide" data-x="800" data-y="1650" data-z="-1000">
 		<p>There's something important about a music experience together</p>
-	</div>
+	</div> -->
 
 
-	<div id="tiny" data-z="-1800" class="step">
+	<!-- 	<div id="tiny" data-z="-1800" class="step">
 		<p>small</p>
-	</div>
+	</div> -->
 
-	<div id="title" class="step" data-x="4000" data-scale="4">
-		<p>but that is the point. This is a simple example.</p>
-	</div>
 </div>
 
 <script type="text/javascript">
@@ -160,6 +167,7 @@ $(function() {
 	var fxCompA = document.getElementById('fx-comp');
 	var fxCompB = document.getElementById('comp-title');
 
+	// don't let compression get in the way
 	$('#fx-list, #fx-comp')
 	.on('enterStep', function(event) {
 		fxCompA.classList.add('always-visible');

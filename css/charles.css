@@ -239,6 +239,12 @@ input.ch-slider
     opacity: 0.2;
 }
 
+#organ div.overlay {
+}
+
+#organ div p {
+    padding: 20px 20px;
+}
 
 /* Theirs */
 #title {
