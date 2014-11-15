@@ -42,7 +42,7 @@ body {
     line-height: 1;
 }
 ol, ul {
-    list-style: none;
+    /*list-style: none;*/
 }
 blockquote, q {
     quotes: none;
@@ -207,6 +207,38 @@ img.bg {
     line-height: 70px;
     text-align: center;
 }
+
+#fx-comp li {
+    font-size: 32px;
+}
+
+/* fx-comp-example*/
+
+div.ch-slider {
+    float:right;
+    font-size: 18px;
+    border: 1px solid #888;
+    margin-top: 65px;
+    margin-left: 20px;
+    padding: 6px;
+}
+
+input.ch-slider
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    display: block;
+    width: 8px;
+    height: 200px;
+    padding: 0 5px; /*top+bot left+right*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fx-comp-example div div.attenuation {
+    opacity: 0.2;
+}
+
 
 /* Theirs */
 #title {
