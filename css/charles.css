@@ -78,15 +78,23 @@ h1 {
     font-size: 50px;
     line-height: 50px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 h2 {
     font-size: 35px;
     line-height: 35px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
+
+h3 {
+    font-size: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 
 b, strong { font-weight: bold }
 i, em { font-style: italic}
@@ -182,6 +190,26 @@ img.bg {
 
 /* impress.js title */
 
+#contribution span.red {
+    font-color: red;
+    color: red;
+}
+
+#contribution ul {
+    margin-top: 50px;
+    font-size: 29px;
+}
+
+/* Compromise Slide */
+
+#compromise ul {
+    position: relative;
+    left: 80px;
+    font-size: 35px;
+}
+
+/* List the fx. compression is on the next page */
+
 #fx-list {
     font-size: 35px;
 }
@@ -209,10 +237,16 @@ img.bg {
 }
 
 #fx-comp li {
-    font-size: 32px;
+    font-size: 25px;
 }
 
-/* fx-comp-example*/
+#fx-comp img {
+    position: absolute;
+    right: 0px;
+    top: 200px;
+}
+
+/* fx-comp-example */
 
 div.ch-slider {
     float:right;
