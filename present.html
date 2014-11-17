@@ -30,6 +30,11 @@ Basically we use the studio to make sound portable to different settings.
  -->
 <head>
 	<title>Hypercompression</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Fjord+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+
 	<script src="js/jquery.1.7.1.min.js"></script>
 	<script src="js/jmpress.all.js"></script>
 
@@ -54,6 +59,7 @@ Basically we use the studio to make sound portable to different settings.
 
 	<!-- My Polar graph Implementation -->
 	<script src="js/polarStuff.js"></script>
+	<script src="js/polarSpread.js"></script>
 
 
 
@@ -87,10 +93,10 @@ Basically we use the studio to make sound portable to different settings.
 	</div>
 
 	<div id="compromise" class="step" data-x="1000" data-y="00">
-		<h1>Amplified Performance</h1>
+		<h1>Amplified Performance Gives us...</h1>
 		<ul>
-			<li>Precise Control in the Studio</li>
 			<li>Loudness!</li>
+			<li>Precise Control in the Studio</li>
 		</ul>
 		<h1>...but we lose...</h1>
 		<ul>
@@ -119,7 +125,7 @@ Basically we use the studio to make sound portable to different settings.
 		<h1 id='comp-title' class="fx-comp hide">Compression</h1>
 		<img src="img/comp-graph.png" data-jmpress="fade after 1s step" class="hide">
 		<div id="item3" data-jmpress="fade">
-			<h3>Uses for Compression</h3>
+			<h3><b>Uses for Compression</b></h3>
 			<ul>
 				<li>Increase Perceived Loudness</li>
 				<li>Improve Intelligibility</li>
@@ -136,18 +142,21 @@ Basically we use the studio to make sound portable to different settings.
 
 	<!-- Demon Strate audio functionality -->
 	<div id="fx-comp-example" class="step slide" data-x="800" data-y="1650" data-z="-1000">
-		<div id="demo">
-			<div id="waveform">
-				<div class="progress progress-striped active" id="progress-bar">
-					<div class="progress-bar progress-bar-info"></div>
+		<div class="container">
+			<h1 class="title">Link Angle</h1>
+			<div id="demo">
+				<div id="waveform">
+					<div class="progress progress-striped active" id="progress-bar">
+						<div class="progress-bar progress-bar-info"></div>
+					</div>
+					<!-- Here be the waveform -->
 				</div>
-				<!-- Here be the waveform -->
-			</div>
-			<div class="controls">
-<!--                 <button id="play-button" class="btn btn-primary" data-action="play">
-					<i class="glyphicon glyphicon-play"></i> Play / 
-					<i class="glyphicon glyphicon-pause"></i> Pause
-				</button> -->
+	<!--                 
+				<div class="controls">
+					<button id="play-button" class="btn btn-primary" data-action="play">
+					</button> 
+				</div>
+	-->
 			</div>
 		</div>
 
@@ -164,20 +173,19 @@ Basically we use the studio to make sound portable to different settings.
 
 	</div>
 
-	<div id="" class="step slide" data-x="800" data-y="2650" data-z="-1000">
-		<h1>Link Angle gets us half the way there...</h1>
-
-<!--
- 		<p>This could be a pretty decent tool for controlling dynamic Range</p>
-		<p>But I wanted to create complex dynamic 3d sound scapes</p>
--->
- 		<h2 data-jmpress="fade">Side Chaining</h2>
-	</div>
-
-	<div id="" class="step slide" data-x="1800" data-y="1650" data-z="-1000">
+	<div id="fx-spread-example" class="step slide" data-x="1800" data-y="1650" data-z="-1000">
 		<h1>Spread</h1>
-		<p>examples of what this lets us accomplish</p>
-		<p>we need to commit to a panning strategy</p>
+		<div id="polar2">
+
+			<div class='ch-slider attenuation'>
+				Attenuation
+				<input id="spread-attenuation" class="ch-slider" type="range" min="0" max="1" step="0.05" value="0.5"/>
+			</div>
+			<div class='ch-slider'>
+				Spread
+				<input id="spread" class="ch-slider" type="range" min="0.001" max="5" step="0.05" value="0.02"/>
+			</div>
+		</div>
 	</div>
 
 	<div id="organ" class="step" data-x="2000" data-y="-800" data-z="000">
@@ -192,9 +200,19 @@ Basically we use the studio to make sound portable to different settings.
 	</div>
 
 
-	<div id="" class="step slide" data-x="2000" data-y="200" data-z="0">
+	<div id="evaluation" class="step slide" data-x="2000" data-y="200" data-z="0">
 		<h1>Evaluation</h1>
-		<p>As described in document</p>
+		<ul>
+			<li>Use in <span class="red">Live Performance</span></li>	
+		</ul>
+		<div data-jmpress="fade">
+			<h2>Listener A/B Testing</h2>
+			<p>Prepare two contrasting surround audio examples:</p>
+			<ul> 
+				<li>One with <span class=red>Hypercompression</span></li>
+				<li>One with conventional dynamics and panning</li>
+			</ul>
+		</div>
 	</div>
 
 	<div id="" class="step " data-x="3000" data-y="-800" data-z="0">
@@ -221,7 +239,16 @@ Basically we use the studio to make sound portable to different settings.
 
 <script type="text/javascript">
 $(function() {
-	$('#impress').jmpress();
+
+	// jmpress options
+	// https://github.com/jmpressjs/jmpress.js/blob/master/src/components/core.js#L86
+	$('#impress').jmpress({
+		animation: {
+			transitionDuration: '750ms'
+			,transitionDelay: '500ms'
+			,transitionTimingFunction: 'ease-in-out'
+		}
+	});
 
 	var fxCompA = document.getElementById('fx-comp');
 	var fxCompB = document.getElementById('comp-title');
@@ -234,6 +261,10 @@ $(function() {
 	.on('leaveStep', function(event) {
 		fxCompA.classList.remove('always-visible');
 		fxCompB.classList.add('hide');
+	});
+
+	$('.ch-slider').on('focus', function(){
+		this.blur();
 	});
 
 	$('.active').trigger('enterStep');

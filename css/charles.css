@@ -29,7 +29,11 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    /*font: inherit;*/
+    /*font-family: 'Open Sans', Arial, sans-serif;*/
+    /*font-family: 'Fjord One', serif;*/
+    /*font-family: 'Jura', sans-serif;*/
+    font-family: 'Carrois Gothic', sans-serif;
     vertical-align: baseline;
 }
 
@@ -139,11 +143,11 @@ a:hover {
 
 /* fade out inactive slides */
 .step {
-    -webkit-transition: opacity 1s;
-    -moz-transition:    opacity 1s;
-    -ms-transition:     opacity 1s;
-    -o-transition:      opacity 1s;
-    transition:         opacity 1s;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition:    opacity 0.5s;
+    -ms-transition:     opacity 0.5s;
+    -o-transition:      opacity 0.5s;
+    transition:         opacity 0.5s;
 }
 
 .step:not(.active):not(.always-visible) {
@@ -176,24 +180,23 @@ img.bg {
 */
 .step:not(.active) .hide:not(.always-visible) {
     opacity: 0;
-    -webkit-transition: opacity 1s;
-    -moz-transition:    opacity 1s;
-    -ms-transition:     opacity 1s;
-    -o-transition:      opacity 1s;
-    transition:         opacity 1s;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition:    opacity 0.5s;
+    -ms-transition:     opacity 0.5s;
+    -o-transition:      opacity 0.5s;
+    transition:         opacity 0.5s;
 }
 
 
-/* From Fade.css*/
+span.red {
+    color: red;
+}
+
 
 /* STEP SPECIFIC STYLES */
 
 /* impress.js title */
 
-#contribution span.red {
-    font-color: red;
-    color: red;
-}
 
 #contribution ul {
     margin-top: 50px;
@@ -214,15 +217,15 @@ img.bg {
     font-size: 35px;
 }
 
+.fx span.fx-gate    {position:absolute; top:90px;   left: 290px;}
+.fx span.fx-acoust  {position:absolute; top:50px;   left: 90px;}
 
-.fx span.fx-rev     {position:absolute; top:340px;   left: 250px;}
+.fx span.fx-rev     {position:absolute; top:320px;   left: 330px;}
 .fx span.fx-eq      {position:absolute; top:200px;   left: 90px;}
-.fx span.fx-exp     {position:absolute; top:240px;   left: 230px;}
-.fx span.fx-auto    {position:absolute; top:400px;   left: 110px;}
-.fx span.fx-gate    {position:absolute; top:40px;   left: 110px;}
+.fx span.fx-exp     {position:absolute; top:240px;   left: 270px;}
+.fx span.fx-auto    {position:absolute; top:370px;   left: 110px;}
 .fx span.fx-del     {position:absolute; top:130px;   left: 4px;}
 .fx span.fx-pitch   {position:absolute; top:300px;   left: 4px;}
-.fx span.fx-acoust  {position:absolute; top:100px;   left: 150px;}
 
 #fx-list .fx-list-right {
     position:absolute;
@@ -231,7 +234,7 @@ img.bg {
 }
 
 #fx-comp h1.fx-comp {
-    font-size: 70px;
+    font-size: 60px;
     line-height: 70px;
     text-align: center;
 }
@@ -247,6 +250,23 @@ img.bg {
 }
 
 /* fx-comp-example */
+
+#fx-comp-example div.container {
+    display:table;
+    width:100%
+}
+
+#fx-comp-example h1 {
+    vertical-align: middle;
+    margin-right: 50px;
+    width: 240px;
+    display: table-cell;
+}
+
+#fx-comp-example div.demo {
+    width:100%;
+    display: table-cell;
+}
 
 div.ch-slider {
     float:right;
@@ -269,7 +289,8 @@ input.ch-slider
     margin-right: auto;
 }
 
-#fx-comp-example div div.attenuation {
+#fx-comp-example div div.attenuation,
+#fx-spread-example div.attenuation {
     opacity: 0.2;
 }
 
@@ -279,6 +300,17 @@ input.ch-slider
 #organ div p {
     padding: 20px 20px;
 }
+
+#evaluation li {
+    position: relative;
+    left: 55px;
+    /*font-size: 35px;*/
+}
+
+#evaluation ul {
+    margin-top: 28px;
+}
+
 
 /* Theirs */
 #title {
@@ -526,7 +558,7 @@ input.ch-slider
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
     border: 1px solid rgba(0, 0, 0, .3);
 
-    font-family: 'Open Sans', Arial, sans-serif;
+    /*font-family: 'Open Sans', Arial, sans-serif;*/
 
     color: rgb(102, 102, 102);
     text-shadow: 0 2px 2px rgba(0, 0, 0, .1);

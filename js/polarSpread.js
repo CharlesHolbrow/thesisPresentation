@@ -1,8 +1,13 @@
 // to see how the math actually works 
 // https://www.desmos.com/calculator
 // https://www.desmos.com/calculator/k1gwqururh
+
+
+
+
+
 var myRange =  d3.range(0, 366, 6);
-var myPolar = {
+var myPolarSpread = {
   attenuation: -0.15,
   width: 0.5, // 0 is no attenuation; 10 is almost 50% of -5 to 
   config: {
@@ -41,33 +46,36 @@ var myPolar = {
   },
 };
 
-$(function(){
-  myPolar.axis = micropolar.Axis().config(myPolar.config).render(d3.select('#polar1').append('div'));
 
-  var render = window.renderPolarChart = function(att, wdth){
-    var attenuation = myPolar.attenuation;
-    var width = myPolar.width;
-    var config = myPolar.config;
+
+$(function(){
+  myPolarSpread.axis = micropolar.Axis().config(myPolarSpread.config).render(d3.select('#polar2').append('div'));
+
+  var render = function(att, wdth){
+    var attenuation = myPolarSpread.attenuation;
+    var width = myPolarSpread.width;
+    var config = myPolarSpread.config;
 
     if (typeof att === 'number') attenuation = att;
-    else attenuation = parseFloat(document.getElementById('attenuation').value);
+    else attenuation = parseFloat(document.getElementById('spread-attenuation').value);
     if (typeof wdth === 'number') width = wdth;
-    else width = parseFloat(document.getElementById('width').value);
+    else width = parseFloat(document.getElementById('spread').value);
 
       config.data[0].r = myRange.map(function(deg){
         deg = (deg + 180) % 360; // rotate by 180 degrees
-        var x = deg / 360 * 10 - 5; // -5 to 5;
-        return width / (width + Math.pow(x, 4)) * attenuation + 1;
+        var x = deg / 360 * 4 - 2; // -2 to 2;
+        return width / (width + Math.pow(x, 4)) * attenuation;
       });
-    myPolar.axis.config(config).render();
+    myPolarSpread.axis.config(config).render();
   };
 
   render();
 
-  $('#attenuation').on('input', function() {
+  $('#spread-attenuation').on('input', function() {
       render();
   });
-  $('#width').on('input', function() {
+  $('#spread').on('input', function() {
       render();
   });
+
 });
