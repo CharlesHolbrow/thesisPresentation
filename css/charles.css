@@ -195,9 +195,40 @@ span.red {
 
 /* STEP SPECIFIC STYLES */
 
-/* impress.js title */
+/* Title slide */
 
+#home h1 {
+    margin-top: 10px;
+}
+#home h2 {
+    font-size: 22px;
+    line-height: 22px;
+}
+#home h3 {
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: normal;
+}
+#home div.table {
+    margin-top: 10px;
+    display: table;
+    width: 100%;
+}
 
+#home div.reader {
+    display: table-cell;
+    text-align: center;
+    font-size: 22px;
+    line-height: 24px;
+    padding: 15px;
+    width:50%;
+}
+
+#home div.reader b {
+    font-size: 80%
+}
+
+/* contribution */
 #contribution ul {
     margin-top: 50px;
     font-size: 29px;
@@ -209,6 +240,10 @@ span.red {
     position: relative;
     left: 80px;
     font-size: 35px;
+}
+
+#compromise h1 {
+    margin-top: 30px;
 }
 
 /* List the fx. compression is on the next page */
@@ -233,16 +268,19 @@ span.red {
     width: 400px;
 }
 
+#fx-sc-comp h1.fx-comp,
 #fx-comp h1.fx-comp {
     font-size: 60px;
     line-height: 70px;
     text-align: center;
 }
 
+#fx-sc-comp li,
 #fx-comp li {
     font-size: 25px;
 }
 
+#fx-sc-comp img,
 #fx-comp img {
     position: absolute;
     right: 0px;

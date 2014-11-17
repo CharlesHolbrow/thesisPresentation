@@ -1,9 +1,16 @@
 <html>
 <!-- 
 
+Add Readers to first slide!!!!!
+
 Most important: I need to draw the connection be tween dynamic range and speaker placement
 
+Make sure that the advantage is clear?
+What is the cool thing about surround?
 
+Figure out how to tie it up the end. 
+
+______________________________________
 
 Speakers are flawed
 - but how does my solution fix this?
@@ -66,19 +73,46 @@ Basically we use the studio to make sound portable to different settings.
 </head>
 <body>
 <div id="impress">
-	<div id="home" class="step slide" data-x="-2000" data-y="-800">
+	<div id="home" class="step" data-x="-2000" data-y="-800">
 		<h1>Hypercompression</h1>
-		<h2>Surround Sound Compression</h2>
+		<h2>Tools for Dynamic Surround Sound Design</h2>
 		<h3>Charles Holbrow</h3>
 		<h3>Opera of the Future</h3>
+		<div class='table'>
+			<div class='reader'>
+<b>Advisor</b></br>
+Tod Machover </br>
+Professor of  Music and Media </br>
+MIT Media Lab </br>
+			</div>
+		</div>
+		<div class="table">
+			<div class='reader'>
+<b>Reader</b></br>
+Joseph A. Paradiso </br>
+Associate Professor of Media Arts and Sciences, 
+MIT Media Lab </br>
+			</div>
+			<div class='reader'>
+<b>Reader</b></br>
+James A. Moorer </br>
+Principal Scientist </br>
+Adobe Systems, Incorporated </br>
+			</div>
+		</div>
 	</div>
 
-	<div id="vv-layout-1" class="step " data-x="-1000" data-y="-800">
-		<h1 style="font-size:10px">Why this is important?</h1>
+	<div id="" class="step" data-x="-1000" data-y="-800" data-z="00">
+		<img src="img/vv-juliens.jpg" class="bg">
+	</div>
+
+
+	<div id="vv-layout-1" class="step" data-x="-1000" data-y="-800">
 		<img src="img/vv-layout-crop.png" class="bg hide">
 	</div>
 
-	<div id="contribution" class="step slide" data-x="0" data-y="-800">
+
+	<div id="contribution" class="step" data-x="0" data-y="-800">
 		<h1>Contribution</h1>
 		<h2>Audio Processing Software</h2>
 		<ul>
@@ -93,7 +127,7 @@ Basically we use the studio to make sound portable to different settings.
 	</div>
 
 	<div id="compromise" class="step" data-x="1000" data-y="00">
-		<h1>Amplified Performance Gives us...</h1>
+		<h1>Amplification gives us...</h1>
 		<ul>
 			<li>Loudness!</li>
 			<li>Precise Control in the Studio</li>
@@ -101,6 +135,7 @@ Basically we use the studio to make sound portable to different settings.
 		<h1>...but we lose...</h1>
 		<ul>
 			<li>Acoustic Sound Projection</li>
+			<li>Acoustic Dynamics</li>
 		</ul>
 	</div>
 
@@ -117,14 +152,13 @@ Basically we use the studio to make sound portable to different settings.
 		<span class="hide fx-del">Delay</span>
 		<span class="hide fx-pitch">Pitch Shift</span>
 		<span class="hide fx-acoust">Acoustics</span>
-		<img class="hide fx-list-right" src="img/placement.png" data-jmpress="fade">
-		<!-- <img class="hide fx-list-right" src="img/vv-layout-crop.png" data-jmpress="fade"> -->
+		<img class="hide fx-list-right" src="img/placement.png">
 	</div>
 
 	<div id="fx-comp" class="step fx" data-x="800" data-y="850" data-z="-1000">
 		<h1 id='comp-title' class="fx-comp hide">Compression</h1>
 		<img src="img/comp-graph.png" data-jmpress="fade after 1s step" class="hide">
-		<div id="item3" data-jmpress="fade">
+		<div id="item3" data-jmpress="fade" class="hide">
 			<h3><b>Uses for Compression</b></h3>
 			<ul>
 				<li>Increase Perceived Loudness</li>
@@ -137,11 +171,30 @@ Basically we use the studio to make sound portable to different settings.
 				<li>Balance Multiple Signals</li>
 				<li>Add Distortion</li>
 		</div>
-		<!-- <img src="img/comp-graph.png" style="margin-left: auto; margin-right: auto"> -->
 	</div>
 
+	<div id="fx-sc-comp" class="step" data-x="800" data-y="1650" data-z="-1000">
+		<h1 class='hide fx-comp'>Sidechain Compression</h1>
+		<img src="img/comp-graph.png" class="hide">
+		<div data-jmpress="fade">
+			<h3 class='hide'><b>Uses for Sidechain Compression</b></h3>
+			<ul class="hide">
+				<li style="visibility:hidden">Increase Perceived Loudness</li>
+				<li>Improve Intelligibility</li>
+				<li style="visibility:hidden">Improve Articulation</li>
+				<li style="visibility:hidden">Smooth A Performance</li>
+				<li>Shape Transients</li>
+				<li style="visibility:hidden">Extract Ambience</li>
+				<li>De-ess Vocals</li>
+				<li>Balance Multiple Signals</li>
+				<li style="visibility:hidden">Add Distortion</li>
+			</ul>
+		</div>
+	</div>
+
+
 	<!-- Demon Strate audio functionality -->
-	<div id="fx-comp-example" class="step slide" data-x="800" data-y="1650" data-z="-1000">
+	<div id="fx-comp-example" class="step slide" data-x="300" data-y="2450" data-z="-1000">
 		<div class="container">
 			<h1 class="title">Link Angle</h1>
 			<div id="demo">
@@ -173,7 +226,7 @@ Basically we use the studio to make sound portable to different settings.
 
 	</div>
 
-	<div id="fx-spread-example" class="step slide" data-x="1800" data-y="1650" data-z="-1000">
+	<div id="fx-spread-example" class="step slide" data-x="1300" data-y="2450" data-z="-1000">
 		<h1>Spread</h1>
 		<div id="polar2">
 
