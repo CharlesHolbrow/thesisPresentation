@@ -307,8 +307,10 @@ input.ch-slider
     /*font-size: 35px;*/
 }
 
-#evaluation ul {
-    margin-top: 28px;
+#evaluation ul,
+#evaluation ol {
+    margin-top: 10px;
+    margin-bottom: 28px;
 }
 
 
