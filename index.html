@@ -176,7 +176,7 @@ Adobe Systems, Incorporated </br>
 	<div id="fx-sc-comp" class="step" data-x="800" data-y="1650" data-z="-1000">
 		<h1 class='hide fx-comp'>Sidechain Compression</h1>
 		<img src="img/comp-graph.png" class="hide">
-		<div data-jmpress="fade">
+<!-- 		<div data-jmpress="fade">
 			<h3 class='hide'><b>Uses for Sidechain Compression</b></h3>
 			<ul class="hide">
 				<li style="visibility:hidden">Increase Perceived Loudness</li>
@@ -190,15 +190,15 @@ Adobe Systems, Incorporated </br>
 				<li style="visibility:hidden">Add Distortion</li>
 			</ul>
 		</div>
-	</div>
+ -->	</div>
 
 
 	<!-- Demon Strate audio functionality -->
 	<div id="fx-comp-example" class="step slide" data-x="300" data-y="2450" data-z="-1000">
 		<div class="container">
 			<h1 class="title">Link Angle</h1>
-			<div id="demo">
-				<div id="waveform">
+			<div class="demo">
+				<div id="waveform" class="click-to-play">
 					<div class="progress progress-striped active" id="progress-bar">
 						<div class="progress-bar progress-bar-info"></div>
 					</div>
@@ -227,7 +227,12 @@ Adobe Systems, Incorporated </br>
 	</div>
 
 	<div id="fx-spread-example" class="step slide" data-x="1300" data-y="2450" data-z="-1000">
-		<h1>Spread</h1>
+		<div class="container">
+			<h1 class="title">Spread</h1>
+			<div class="demo" id="second-parent">
+					
+			</div>
+		</div>
 		<div id="polar2">
 
 			<div class='ch-slider attenuation'>
@@ -324,6 +329,13 @@ $(function() {
 	$('.ch-slider').on('focus', function(){
 		this.blur();
 	});
+
+	$('#fx-comp-example').on('enterStep', function(){
+		$wave.appendTo(firstParent);
+	});
+	$('#fx-spread-example').on('enterStep', function(){
+		$wave.appendTo(secondParent);
+	})
 
 	$('.active').trigger('enterStep');
 });

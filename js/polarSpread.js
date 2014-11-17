@@ -51,7 +51,7 @@ var myPolarSpread = {
 $(function(){
   myPolarSpread.axis = micropolar.Axis().config(myPolarSpread.config).render(d3.select('#polar2').append('div'));
 
-  var render = function(att, wdth){
+  var render = window.renderPolarSpread =function(att, wdth){
     var attenuation = myPolarSpread.attenuation;
     var width = myPolarSpread.width;
     var config = myPolarSpread.config;

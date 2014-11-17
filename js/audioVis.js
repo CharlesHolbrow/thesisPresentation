@@ -71,14 +71,24 @@ document.addEventListener('DOMContentLoaded', function () {
         var val = window.audioLevel * -1 / 72 - 1;
         window.renderPolarChart(val);
 
+        window.spreadVal = (window.audioLevel / 72 + 1.01) * 0.8;
+        window.renderPolarSpread(0.5, spreadVal);
+
         if (isPlaying)
             requestAnimationFrame(animate);
     };
 
 
-    $('#waveform').click(function(event){
+    $('.click-to-play').click(function(event){
         wavesurfer.playPause();
         event.preventDefault();
     });
+
+    window.$wave = $('#waveform');
+    window.firstParent = $wave.parent();
+    window.secondParent = $('#second-parent');
+
+    $()
+
 
 });

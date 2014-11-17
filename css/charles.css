@@ -289,20 +289,23 @@ span.red {
 
 /* fx-comp-example */
 
+#fx-spread-example div.container,
 #fx-comp-example div.container {
     display:table;
     width:100%
 }
 
+#fx-spread-example h1,
 #fx-comp-example h1 {
     vertical-align: middle;
     margin-right: 50px;
     width: 240px;
+    height: 128px;
     display: table-cell;
 }
-
+#fx-spread-example div.demo,
 #fx-comp-example div.demo {
-    width:100%;
+    /*width:100%;*/
     display: table-cell;
 }
 
